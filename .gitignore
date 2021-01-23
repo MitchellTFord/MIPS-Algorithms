@@ -1,0 +1,5 @@
+# Ignore Mars
+Mars*
+
+# Ignore Reference Files
+reference/
