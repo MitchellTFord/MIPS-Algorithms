@@ -1,4 +1,5 @@
-# This program contains a function that calculates the factorial of a positive integer.
+# This file contains a function that calculates the factorial of a positive integer.
+# Executing this file will prompt the user for a positive integer, then print the factorial of that number.
 
 .data
 	prompt: .asciiz "Enter a positive integer to get the factorial of: "
