@@ -31,9 +31,10 @@ swap:
 
 # Swap the values at two indices of an array
 # Arguments
-# 	$a0 - the base address of the array
-# 	$a1 - the first index
-#	$a2 - the second index
+# 	$a0 - the first index
+# 	$a1 - the second index
+#	$a2 - the base address of the array
+# Register Usage
 swapByIndex:
 	# Return
 	jr $ra
