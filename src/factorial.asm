@@ -1,4 +1,5 @@
-# This program contains a function that calculates the factorial of a positive integer.
+# This file contains a function that calculates the factorial of a positive integer.
+# Executing this file will prompt the user for a positive integer, then print the factorial of that number.
 
 .data
 	prompt: .asciiz "Enter a positive integer to get the factorial of: "
@@ -42,11 +43,6 @@ main:
 	move $a0 $t1
 	syscall
 	
-	# printf("%d", result)
-	move $a0 $t1
-	li $v0 1
-	syscall
-	
 	# Terminate the program
 	li $v0 10
 	syscall
@@ -73,7 +69,7 @@ factorial:
 		# x--
 		addi $a0 $a0 -1
 		
-		b factorial_iterative_loop_start
+		b factorial_loop_start
 		
 	factorial_loop_finish:
 		# return product
