@@ -1,7 +1,7 @@
 
 .data
-
-
+	array: .word 3, 2, 4, 5, 6
+	arraySize: .word 5
 
 .text
 
@@ -26,5 +26,14 @@ swap:
 	sw $t0 ($a1)
 	sw $t1 ($a0)
 	
+	# Return
+	jr $ra
+
+# Swap the values at two indices of an array
+# Arguments
+# 	$a0 - the base address of the array
+# 	$a1 - the first index
+#	$a2 - the second index
+swapByIndex:
 	# Return
 	jr $ra
