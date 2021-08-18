@@ -5,6 +5,7 @@
 
 .text
 
+# Print array, swap array[1] and array[2], and print it again
 main:
 	# Print array before swap operation
 	la $a0 array
@@ -51,6 +52,8 @@ swap:
 # 	$a1 - the second index
 #	$a2 - the base address of the array
 # Register Usage
+#	$a0 - changed to the address of array[$a0]
+#	$a1 - changed to the address of array[$a1]
 swapByIndex:
 	# Calculate the address of array[$a0]
 	sll $a0 $a0 2 # calculate the offset
