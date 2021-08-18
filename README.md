@@ -16,14 +16,14 @@ from the `src` file and run it.
 |
 \---src
     +---io
-    |       print_array.asm
-    |       prompt_integer.asm
+    |       [print_array.asm](src/io/print_array.asm)
+    |       [prompt_integer.asm](src/io/prompt_integer.asm)
     |       
     +---math
-    |       factorial.asm
-    |       
+    |       [factorial.asm](src/math/factorial.asm)
+    |
     \---sort
-            insertion_sort.asm
-            swap.asm
-            swap_by_index.asm
+            [insertion_sort.asm](src/sort/insertion_sort.asm)
+            [swap.asm](src/sort/swap.asm)
+            [swap_by_index.asm](src/sort/swap_by_index.asm)
 ```
