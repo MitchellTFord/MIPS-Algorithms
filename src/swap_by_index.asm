@@ -6,6 +6,22 @@
 .text
 
 main:
+	# Print array before swap operation
+	la $a0 array
+	lw $a1 arraySize
+	jal printArray
+	
+	# Swap array[1] and array[2]
+	li $a0 1
+	li $a1 2
+	la $a2 array
+	jal swapByIndex
+	
+	# Print array after swap operation
+	la $a0 array
+	lw $a1 arraySize
+	jal printArray
+	
 	# Terminate the program
 	li $v0 10
 	syscall
