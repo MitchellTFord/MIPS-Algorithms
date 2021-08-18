@@ -9,6 +9,10 @@ main:
 	li $v0 10
 	syscall
 
+# Sort an array of numbers using the insertion sort algorithm
+# Arguments
+# 	$a0 - the base address of the array
+#	$a1 - the length of the array
 insertionSort:
 	# Return
 	jr $ra
