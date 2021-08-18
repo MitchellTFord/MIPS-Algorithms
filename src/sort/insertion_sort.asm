@@ -39,6 +39,8 @@ main:
 #	$t1 - j
 #	$t2 - key
 #	$t3 - array[j]
+#	$t4 - temp for and conditon
+#	$t5 - temp for and conditon
 # Pseudocode
 #   int i = 1;
 #	while(i < arrayLength) {
@@ -67,11 +69,37 @@ insertionSort:
 		addi $t1 $t0 -1
 		
 		# key = array[i]
-		sll $t2 $t0 4 # calculate the offset
+		sll $t2 $t0 2 # calculate the offset
 		add $t2 $t2 $a0 # calculate the address of array[i]
 		lw $t2 ($t2) # load array[i]
 		
-		# Inner Loop
+		# while(j >=0 && array[j] < key)
+		insertionSort_BeginInnerWhile:
+		
+		sll $t3 $t1 2 # calculate the offset
+		add $t3 $t3 $a0 # calculate the address of array[j]
+		lw $t3 ($t3) # load array[j]
+		
+		slt $t4 $t1 $0 # temp1 = j < 0
+		not $t4 $t4 # temp1 = !temp (j >= 0)
+		
+		slt $t5 $t3 $t2 # temp2 = array[j] < key
+		
+		and $t4 $t4 $t5 # temp1 = temp1 && temp2
+		
+		bne $t4 $0 insertionSort_InnerWhile
+		j insertionSort_EndInnerWhile
+		
+		insertionSort_InnerWhile:
+		
+			# Inner loop body
+			
+			# j = j - 1
+			addi $t1 $t1 -1
+			
+			j insertionSort_BeginInnerWhile
+		
+		insertionSort_EndInnerWhile:
 		
 		# i = i + 1
 		addi $t0 $t0 1
