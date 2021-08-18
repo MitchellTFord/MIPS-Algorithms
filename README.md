@@ -10,7 +10,7 @@ to run MIPS assembly code. With MARS, you can simply open any `.asm` file
 from the `src` file and run it.
 
 ## Repository Structure
-```
+<pre>
 |   .gitignore
 |   README.md
 |
@@ -26,4 +26,4 @@ from the `src` file and run it.
             [insertion_sort.asm](src/sort/insertion_sort.asm)
             [swap.asm](src/sort/swap.asm)
             [swap_by_index.asm](src/sort/swap_by_index.asm)
-```
+</pre>
