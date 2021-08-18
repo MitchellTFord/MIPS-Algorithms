@@ -1,3 +1,5 @@
+# This file contains a function that swaps the values at two indices of an array.
+# Executing this file will print the array, perform a swap, and print it again.
 
 .data
 	array: .word 3, 2, 4, 5, 6
