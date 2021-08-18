@@ -23,7 +23,7 @@ from the `src` file and run it.
     |       <a href="src/math/factorial.asm">factorial.asm</a>
     |
     \---sort
-            <a href="src/sort/insertion_sort.asm">insertion_sort.asm</a><br>
-			<a href="src/sort/swap.asm">swap.asm</a><br>
-			<a href="src/sort/swap_by_index.asm">swap_by_index.asm</a><br>
+            <a href="src/sort/insertion_sort.asm">insertion_sort.asm</a>
+			<a href="src/sort/swap.asm">swap.asm</a>
+			<a href="src/sort/swap_by_index.asm">swap_by_index.asm</a>
 </pre>
