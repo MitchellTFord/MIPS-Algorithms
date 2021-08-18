@@ -28,57 +28,21 @@ main:
 # Arguments
 # 	$a0 - the base address of the array
 #	$a1 - the length of the array
+# Register Usage
+#	$t0 - i
+#	$t1 - j
+#	$t2 - key
+# Pseudocode
+#   int i = 1;
+#	while(i < arrayLength) {
+#	  int key = array[i];
+#	  int j = i - 1;
+#	  while(j >=0 && array[j] < key) {
+#		array[j + 1] = array[j];
+#		j = j - 1;
+#	  }
+#	}
 insertionSort:
-	# Return
-	jr $ra
-
-# Swap the values at two addresses.
-# Arguments
-#	$a0 - the first address
-#	$a1 - the second address
-# Register Usage
-# 	$t0 - temporary for swapping
-# 	$t1 - temporary for swapping
-swap:
-	# Load values into registers
-	lw $t0 ($a0)
-	lw $t1 ($a1)
-	
-	# Store swapped values back in memory
-	sw $t0 ($a1)
-	sw $t1 ($a0)
-	
-	# Return
-	jr $ra
-
-# Swap the values at two indices of an array
-# Arguments
-# 	$a0 - the first index
-# 	$a1 - the second index
-#	$a2 - the base address of the array
-# Register Usage
-#	$a0 - changed to the address of array[$a0]
-#	$a1 - changed to the address of array[$a1]
-swapByIndex:
-	# Calculate the address of array[$a0]
-	sll $a0 $a0 2 # calculate the offset
-	add $a0 $a0 $a2 # add base address to the offset
-	
-	# Calculate the address of array[$a1]
-	sll $a1 $a1 2 # calculate the offset
-	add $a1 $a1 $a2 # add the base address to the offset
-	
-	# Save $ra to stack
-	addi $sp $sp -4
-	sw $ra ($sp)
-	
-	# swap(array[i],array[j])
-	jal swap
-	
-	# Load $ra from stack
-	lw $ra ($sp)
-	addi $sp $sp 4
-	
 	# Return
 	jr $ra
 
