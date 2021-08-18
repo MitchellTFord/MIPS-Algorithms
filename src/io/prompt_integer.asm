@@ -17,5 +17,12 @@ main:
 # Returns
 #	$v0 - the integer entered by the user
 promptInteger:
+	# Print the prompt string
+	li $v0 4
+	
+	# Get the user's input
+	li $v0 5
+	syscall
+	
 	# Return
 	jr $ra
