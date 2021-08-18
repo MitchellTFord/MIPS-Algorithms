@@ -1,4 +1,4 @@
-# Assembly Algorithms
+# MIPS Assembly Algorithms
 
 This repository contains many basic algorithms implemented in MIPS assembly.
 I'm working on this project to better educate myself on writing low level code.
