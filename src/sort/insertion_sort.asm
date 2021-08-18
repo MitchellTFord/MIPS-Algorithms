@@ -1,3 +1,5 @@
+# This file contains a function that sorts an array using the insertion sort algorithm.
+# Executing this file prints an array, sorts it, and prints it again.
 
 .data
 	array: .word 3, 2, 4, 5, 6
