@@ -19,6 +19,7 @@ main:
 promptInteger:
 	# Print the prompt string
 	li $v0 4
+	syscall
 	
 	# Get the user's input
 	li $v0 5
