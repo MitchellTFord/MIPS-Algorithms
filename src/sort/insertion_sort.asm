@@ -5,6 +5,21 @@
 
 .text
 main:
+	# Print array before sort
+	la $a0 array
+	lw $a1 arraySize
+	jal printArray
+	
+	# Sort the array
+	la $a0 array
+	lw $a1 arraySize
+	jal insertionSort
+
+	# Print array after sort
+	la $a0 array
+	lw $a1 arraySize
+	jal printArray
+	
 	# Terminate the program
 	li $v0 10
 	syscall
