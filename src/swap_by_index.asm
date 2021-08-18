@@ -36,5 +36,24 @@ swap:
 #	$a2 - the base address of the array
 # Register Usage
 swapByIndex:
+	# Calculate the address of array[$a0]
+	sll $a0 $a0 2 # calculate the offset
+	add $a0 $a0 $a2 # add base address to the offset
+	
+	# Calculate the address of array[$a1]
+	sll $a1 $a1 2 # calculate the offset
+	add $a1 $a1 $a2 # add the base address to the offset
+	
+	# Save $ra to stack
+	addi $sp $sp -4
+	sw $ra ($sp)
+	
+	# swap(array[i],array[j])
+	jal swap
+	
+	# Load $ra from stack
+	lw $ra ($sp)
+	addi $sp $sp 4
+	
 	# Return
 	jr $ra
