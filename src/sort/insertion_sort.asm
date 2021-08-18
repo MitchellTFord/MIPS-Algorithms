@@ -40,7 +40,7 @@ main:
 #	$t2 - key
 #	$t3 - array[j]
 #	$t4 - temp for and conditon
-#	$t5 - temp for and conditon
+#	$t5 - temp for and conditon and for address of array[j+1]
 # Pseudocode
 #   int i = 1;
 #	while(i < arrayLength) {
@@ -80,10 +80,10 @@ insertionSort:
 		add $t3 $t3 $a0 # calculate the address of array[j]
 		lw $t3 ($t3) # load array[j]
 		
-		slt $t4 $t1 $0 # temp1 = j < 0
+		sltu $t4 $t1 $0 # temp1 = j < 0
 		not $t4 $t4 # temp1 = !temp (j >= 0)
 		
-		slt $t5 $t3 $t2 # temp2 = array[j] < key
+		sgtu $t5 $t3 $t2 # temp2 = array[j] > key
 		
 		and $t4 $t4 $t5 # temp1 = temp1 && temp2
 		
@@ -92,7 +92,12 @@ insertionSort:
 		
 		insertionSort_InnerWhile:
 		
-			# Inner loop body
+			sll $t5 $t1 2 # temp2 = array[j] offset
+			add $t5 $t5 $a0 # temp2 = temp2 + base address of array
+			addi $t5 $t5 4 # temp2 = temp2 + 4 (address of array[j+1])
+			
+			# array[j+1] = array[j]
+			sw $t3 ($t5)
 			
 			# j = j - 1
 			addi $t1 $t1 -1
@@ -100,6 +105,12 @@ insertionSort:
 			j insertionSort_BeginInnerWhile
 		
 		insertionSort_EndInnerWhile:
+		
+		# array[j+1] = key
+		sll $t5 $t1 2 # temp2 = array[j] offset
+		add $t5 $t5 $a0 # temp2 = temp2 + base address of array
+		addi $t5 $t5 4 # temp2 = temp2 + 4 (address of array[j+1])
+		sw $t2 ($t5)
 		
 		# i = i + 1
 		addi $t0 $t0 1
