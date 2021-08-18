@@ -2,6 +2,7 @@
 .data
 	array: .word 3, 2, 4, 5, 6
 	arraySize: .word 5
+	sortingMessage: .asciiz "Sorting...\n"
 
 .text
 main:
@@ -9,6 +10,11 @@ main:
 	la $a0 array
 	lw $a1 arraySize
 	jal printArray
+	
+	# printf("Sorting...\n")
+	la $a0 sortingMessage
+	li $v0 4
+	syscall # print string
 	
 	# Sort the array
 	la $a0 array
@@ -32,17 +38,48 @@ main:
 #	$t0 - i
 #	$t1 - j
 #	$t2 - key
+#	$t3 - array[j]
 # Pseudocode
 #   int i = 1;
 #	while(i < arrayLength) {
-#	  int key = array[i];
 #	  int j = i - 1;
+#	  int key = array[i];
 #	  while(j >=0 && array[j] < key) {
 #		array[j + 1] = array[j];
 #		j = j - 1;
 #	  }
+#	  i = i + 1;
 #	}
 insertionSort:
+	
+	# i = 1;
+	li $t0 1
+	
+	# while(i < arrayLength)
+	insertionSort_BeginOuterWhile:
+	
+	blt $t0 $a1 insertionSort_OuterWhile
+	j insertionSort_EndOuterWhile
+	
+	insertionSort_OuterWhile:
+	
+		# j = i - 1
+		addi $t1 $t0 -1
+		
+		# key = array[i]
+		sll $t2 $t0 4 # calculate the offset
+		add $t2 $t2 $a0 # calculate the address of array[i]
+		lw $t2 ($t2) # load array[i]
+		
+		# Inner Loop
+		
+		# i = i + 1
+		addi $t0 $t0 1
+		
+		j insertionSort_BeginOuterWhile
+	
+	insertionSort_EndOuterWhile:
+	
 	# Return
 	jr $ra
 
