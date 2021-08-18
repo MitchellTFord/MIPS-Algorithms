@@ -17,14 +17,14 @@ README.md
 src
 |
 +---io
-|	|	<a href="src/io/print_array.asm">print_array.asm</a>
-|	|	<a href="src/io/prompt_integer.asm">prompt_integer.asm</a>
+|   |   <a href="src/io/print_array.asm">print_array.asm</a>
+|   |   <a href="src/io/prompt_integer.asm">prompt_integer.asm</a>
 |       
 +---math
-|	|	<a href="src/math/factorial.asm">factorial.asm</a>
+|   |   <a href="src/math/factorial.asm">factorial.asm</a>
 |
 +---sort
-|	|	<a href="src/sort/insertion_sort.asm">insertion_sort.asm</a>
-|	|	<a href="src/sort/swap.asm">swap.asm</a>
-|	|	<a href="src/sort/swap_by_index.asm">swap_by_index.asm</a>
+|   |   <a href="src/sort/insertion_sort.asm">insertion_sort.asm</a>
+|   |   <a href="src/sort/swap.asm">swap.asm</a>
+|   |   <a href="src/sort/swap_by_index.asm">swap_by_index.asm</a>
 </pre>
