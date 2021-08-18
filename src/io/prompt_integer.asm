@@ -2,11 +2,16 @@
 
 .data
 
+	prompt: .asciiz "Enter a number: "
 
 .text
 
-# Call promptInteger
+# Call promptInteger using the prompt string
 main:
+	# promptInteger("Enter a number: ")
+	la $a0 prompt
+	jal promptInteger
+	
 	# Terminate the program
 	li $v0 10
 	syscall
